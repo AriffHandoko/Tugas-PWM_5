@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+ <html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>My First PWA</title>
+<meta name="description" content="My first PWA"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/materialize.min.css">
+</head>
+<body>
+
+<!-- Navigasi -->
+<nav class="teal lighten-1" role="navigation">
+<div class="nav-wrapper container">
+<a href="#" class="brand-logo" id="logo-container">My App</a>
+<a href="#" class="sidenav-trigger" data-target="nav-mobile">☰</a>
+
+<ul class="topnav right hide-on-med-and-down"></ul>
+<ul class="sidenav" id="nav-mobile"></ul>
+</div>
+</nav>
+<!-- Akhir Navigasi -->
+<div class="container" id="body-content"></div>
+<script src="js/materialize.min.js"></script>
+<script src="js/nav.js"></script>
+
+<script>
+	//menambahkan script service work untuk merigristasi halaman web
+	if  (!('serviceWorker'  in  navigator)) {
+        console.log('Service    worker  not supported');
+        //return;
+    }
+		//untuk meregristasi file arif-sw.js 
+		//kemudian jika berhasil di registrasi maka akan muncul change log
+        navigator.serviceWorker.register('arif-sw.js')
+            .then(function()    {
+         console.log('Registered');
+    })
+		//jika terjadi error maka akan muncul registrasi log failed
+        .catch(function(error)  {
+        console.log('Registration   failed:',   error);
+    });
+</script>
+
+</body>
+</html>
